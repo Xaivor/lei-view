@@ -1,0 +1,235 @@
+$button-color-primary: #409eff;
+$button-color-success: #67c23a;
+$button-color-info: #909399;
+$button-color-warning: #e6a23c;
+$button-color-danger: #f56c6c;
+
+@mixin deep-color($color) {
+  color: $color;
+
+  i {
+    color: $color;
+  }
+}
+
+
+@mixin button-color($color) {
+  background-color: $color;
+  border-color: $color;
+  @include deep-color(#fff);
+}
+
+
+@mixin button-type($color) {
+  @include button-color($color);
+
+  .button-loading {
+    border: 2px solid #fff;
+    border-bottom-color: transparent;
+  }
+
+  &:hover {
+    background-color: lighten($color, 10%);
+    border-color: lighten($color, 10%);
+  }
+
+  &.disabled {
+    &:hover {
+      @include button-color($color);
+    }
+  }
+
+  &.plain {
+    background-color: rgba($color, 10%);
+    @include deep-color($color);
+
+    &:hover {
+      background-color: $color;
+      @include deep-color(#fff);
+
+      .button-loading {
+        border: 2px solid #fff;
+        border-bottom-color: transparent;
+      }
+    }
+
+
+    &.disabled {
+      &:hover {
+        background-color: rgba($color, 10%);
+        @include deep-color($color);
+      }
+    }
+
+    .button-loading {
+      border: 2px solid $color;
+      border-bottom-color: transparent;
+    }
+  }
+
+  &:active,
+  &.plain:active {
+    background-color: darken($color, 10%);
+    border-color: darken($color, 10%);
+  }
+
+  &.link {
+    background: #fff !important;
+    @include deep-color($color);
+
+    border-color: transparent;
+
+    &:hover {
+      @include deep-color(lighten($color, 10%));
+    }
+
+    &:active {
+      @include deep-color(darken($color, 10%));
+    }
+
+    .button-loading {
+      border: 2px solid $color;
+      border-bottom-color: transparent;
+    }
+  }
+}
+
+@mixin button-size($size) {
+  padding: 6px*$size 14px*$size;
+  font-size: 14px*$size;
+}
+
+.lei-button {
+  @include deep-color(#333);
+
+  border-radius: 4px;
+  border: 1px solid #eee;
+  background: #fff;
+  display: inline-block;
+  cursor: pointer;
+  margin-left: 12px;
+  user-select: none;
+
+  &.type-default.plain {
+    border-color: $button-color-primary;
+    @include deep-color($button-color-primary);
+    background: #fff;
+
+    .button-loading {
+      border: 2px solid $button-color-primary;
+      border-bottom-color: transparent;
+    }
+  }
+
+  &.type-default:hover {
+    border-color: rgba($button-color-primary, 10%);
+    background-color: rgba($button-color-primary, 10%);
+    color: $button-color-primary;
+
+    .button-loading {
+      border: 2px solid $button-color-primary;
+      border-bottom-color: transparent;
+    }
+
+    &:active {
+      border-color: $button-color-primary;
+    }
+
+    &.disabled {
+      @include deep-color(#333);
+      border: 1px solid #eee;
+      background: #fff;
+    }
+
+    &.plain.disabled {
+      border-color: $button-color-primary;
+      color: $button-color-primary;
+    }
+  }
+
+  &.type-default.link {
+    background: #fff;
+    @include deep-color(#333);
+    border-color: transparent;
+
+    &:hover {
+      @include deep-color(lighten(#333, 20%));
+      border-color: transparent;
+    }
+
+    &:active {
+      @include deep-color(darken(#333, 20%));
+      border-color: transparent;
+    }
+  }
+
+  &.type-primary {
+    @include button-type($button-color-primary)
+  }
+
+  &.type-success {
+    @include button-type($button-color-success)
+  }
+
+  &.type-info {
+    @include button-type($button-color-info)
+  }
+
+  &.type-warning {
+    @include button-type($button-color-warning)
+  }
+
+  &.type-danger {
+    @include button-type($button-color-danger)
+  }
+
+  &.size {
+    &-mini {
+      @include button-size(0.8)
+    }
+
+    &-middle {
+      @include button-size(1)
+    }
+
+    &-large {
+      @include button-size(1.2)
+    }
+  }
+
+  &.round {
+    border-radius: 20px;
+  }
+
+  &.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.button-loading {
+  width: 14px;
+  height: 14px;
+  margin-right: 6px;
+  border-radius: 50%;
+  border: 2px solid #bbb;
+  border-bottom-color: transparent;
+  animation: button-loading 1s infinite linear;
+  display: inline-block;
+}
+
+@keyframes button-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.flex_center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -2,6 +2,8 @@ import { defineConfig } from 'dumi';
 
 export default defineConfig({
   outputPath: 'docs-dist',
+  base: '/lei-view/',
+  publicPath: '/lei-view/',
   themeConfig: {
     name: 'lei-view',
     footer: false,

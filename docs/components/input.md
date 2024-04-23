@@ -1,4 +1,4 @@
-# Input
+# Input 输入框
 
 通过鼠标或键盘输入字符
 
@@ -26,7 +26,7 @@ export default () => <>
 
 ## 只读状态
 
-通过 `disabled` 属性指定是否只读 input 组件
+通过 `readonly` 属性指定是否只读 input 组件
 
 ```jsx
 import { Input } from 'lei-view';

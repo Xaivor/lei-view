@@ -1,4 +1,4 @@
-# Button
+# Button 按钮
 
 常用的操作按钮
 
@@ -153,13 +153,13 @@ export default () => {
         plain 
         loading={loading} 
         loading-text="提交中..."
-        onClick={() => handleClick()}
+        onClick={handleClick}
         >点我提交</Button>
       <Button 
         type="primary"
         loading={loading} 
         loading-text="上传中..."
-        onClick={() => handleClick()}
+        onClick={handleClick}
         >点我上传</Button>
     </div>
   </>

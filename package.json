@@ -1,6 +1,6 @@
 {
   "name": "lei-view",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "基于 react dumi 的一个 UI 框架",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -11,6 +11,7 @@
     "build:watch": "father dev",
     "docs:build": "dumi build",
     "docs:deploy": "node bin/deploy.js",
+    "publish": "npm run build && npm publish",
     "prepare": "husky install && dumi setup",
     "doctor": "father doctor",
     "lint": "npm run lint:es && npm run lint:css",
@@ -64,15 +65,16 @@
     "eslint": "^8.23.0",
     "father": "^4.1.0",
     "husky": "^8.0.1",
-    "less": "^4.2.0",
-    "less-loader": "^12.2.0",
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
     "prettier-plugin-organize-imports": "^3.0.0",
     "prettier-plugin-packagejson": "^2.2.18",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "stylelint": "^14.9.1",
-    "shelljs": "^0.8.5"
+    "shelljs": "^0.8.5",
+    "stylelint": "^14.9.1"
+  },
+  "dependencies": {
+    "@umijs/plugin-sass": "^1.1.1"
   }
 }

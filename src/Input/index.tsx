@@ -1,6 +1,6 @@
 
 import React, { type FC, useState } from 'react';
-import './index.less'
+import './index.scss'
 
 interface Props {
   type: 'text' | 'password' | 'email' | 'number',
