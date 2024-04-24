@@ -11,16 +11,10 @@
 $ npm install lei-view
 ```
 
-导入样式，在入口文件（layout.tsx/index.tsx）
-
-```js
-import 'lei-view/dist/umd/lei-view.min.css'
-```
-
 ## 官方地址
 
 - github：[点我跳转](https://github.com/Xaivor/lei-view)
-- 文档：[点我跳转](https://xaivor.github.io/lei-view)
+- 开发文档：[点我跳转](https://xaivor.github.io/lei-view)
 - npm：[点我跳转](https://www.npmjs.com/package/lei-view)
 
 ## LICENSE

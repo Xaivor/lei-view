@@ -2,30 +2,27 @@
   "name": "lei-view",
   "version": "0.0.5",
   "description": "基于 react dumi 的一个 UI 框架",
+  "license": "MIT",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "start": "npm run dev",
-    "dev": "dumi dev",
     "build": "father build",
     "build:watch": "father dev",
+    "dev": "dumi dev",
     "docs:build": "dumi build",
     "docs:deploy": "node bin/deploy.js",
-    "publish": "npm run build && npm publish",
-    "prepare": "husky install && dumi setup",
     "doctor": "father doctor",
     "lint": "npm run lint:es && npm run lint:css",
     "lint:css": "stylelint \"{src,test}/**/*.{css,less}\"",
     "lint:es": "eslint \"{src,test}/**/*.{js,jsx,ts,tsx}\"",
-    "prepublishOnly": "father doctor && npm run build"
+    "prepare": "husky install && dumi setup",
+    "prepublishOnly": "father doctor && npm run build",
+    "publish": "npm run build && npm publish",
+    "start": "npm run dev"
   },
-  "authors": [
-    "xaivor"
-  ],
-  "license": "MIT",
-  "files": [
-    "dist"
-  ],
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
@@ -36,24 +33,17 @@
       "prettier --write --no-error-on-unmatched-pattern"
     ],
     "*.{css,less}": [
-      "stylelint --fix",
       "prettier --write"
     ],
     "*.{js,jsx}": [
-      "eslint --fix",
       "prettier --write"
     ],
     "*.{ts,tsx}": [
-      "eslint --fix",
       "prettier --parser=typescript --write"
     ]
   },
-  "publishConfig": {
-    "access": "public"
-  },
-  "peerDependencies": {
-    "react": ">=16.9.0",
-    "react-dom": ">=16.9.0"
+  "dependencies": {
+    "@umijs/plugin-sass": "^1.1.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",
@@ -74,7 +64,14 @@
     "shelljs": "^0.8.5",
     "stylelint": "^14.9.1"
   },
-  "dependencies": {
-    "@umijs/plugin-sass": "^1.1.1"
-  }
+  "peerDependencies": {
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "authors": [
+    "xaivor"
+  ]
 }

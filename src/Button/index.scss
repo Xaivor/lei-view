@@ -87,6 +87,13 @@ $button-color-danger: #f56c6c;
       @include deep-color(darken($color, 10%));
     }
 
+    &.disabled {
+      &:hover {
+        border-color: transparent;
+        @include deep-color($color);
+      }
+    }
+
     .button-loading {
       border: 2px solid $color;
       border-bottom-color: transparent;
@@ -95,8 +102,14 @@ $button-color-danger: #f56c6c;
 }
 
 @mixin button-size($size) {
-  padding: 6px*$size 14px*$size;
+  padding: 8px*$size 9px*$size;
   font-size: 14px*$size;
+
+  .button-loading {
+    width: 9px*$size;
+    height: 9px*$size;
+    margin-right: 4px*$size;
+  }
 }
 
 .lei-button {
@@ -109,6 +122,10 @@ $button-color-danger: #f56c6c;
   cursor: pointer;
   margin-left: 12px;
   user-select: none;
+
+  * {
+    line-height: 1;
+  }
 
   &.type-default.plain {
     border-color: $button-color-primary;
@@ -198,7 +215,7 @@ $button-color-danger: #f56c6c;
   }
 
   &.round {
-    border-radius: 20px;
+    border-radius: 24px;
   }
 
   &.disabled {
@@ -208,9 +225,9 @@ $button-color-danger: #f56c6c;
 }
 
 .button-loading {
-  width: 14px;
-  height: 14px;
-  margin-right: 6px;
+  width: 9px;
+  height: 9px;
+  margin-right: 4px;
   border-radius: 50%;
   border: 2px solid #bbb;
   border-bottom-color: transparent;

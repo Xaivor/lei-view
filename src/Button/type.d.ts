@@ -33,7 +33,7 @@ export interface Props {
    * @description 加载显示的文字
    * @default "加载中..."
    */
-  "loading-text"?: string;
+  loadingText?: string;
   /**
    * @description 图标name
    * @default "--"
@@ -49,6 +49,11 @@ export interface Props {
    * @default "--"
    */
   children?: React.ReactNode;
+  /**
+   * @description 内嵌样式
+   * @default "--"
+   */
+  style?: React.CSSProperties;
   /**
    * @description 点击事件
    * @default "--"

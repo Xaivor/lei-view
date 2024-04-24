@@ -10,15 +10,22 @@
 ```jsx
 import { Icon, Button } from 'lei-view';
 
-const marginLeft = { marginLeft: '10px' }
+const marginLeft = { marginLeft: '10px' };
 
-export default () => <>
-   <Icon name="USB" />
-   <Icon style={marginLeft} name="like" />
-   <Icon style={marginLeft} name="calendar" />
-   <i className="iconfont-lei icon-search" style={{...marginLeft, fontSize: '32px'}}></i>
-   <Button type="primary" style={marginLeft} icon='search'>搜索</Button>
-</>
+export default () => (
+  <>
+    <Icon name="USB" />
+    <Icon style={marginLeft} name="like" />
+    <Icon style={marginLeft} name="calendar" size={32} />
+    <i
+      className="iconfont-lei icon-search"
+      style={{ ...marginLeft, fontSize: '32px' }}
+    ></i>
+    <Button type="primary" style={marginLeft} icon="search">
+      搜索
+    </Button>
+  </>
+);
 ```
 
 ## 常用图标

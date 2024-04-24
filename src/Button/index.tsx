@@ -1,46 +1,58 @@
 import React, { type FC } from 'react';
-import Icon from '../Icon'
-import { Props } from './index.d'
+import Icon from '../Icon';
 import './index.scss';
+import { Props } from './type';
 
-const Button: FC<Props> = (props) => {
+const Button: FC<Props> = ({
+  plain,
+  disabled,
+  round,
+  link,
+  size = 'middle',
+  type = 'default',
+  loading,
+  loadingText = '加载中...',
+  icon,
+  children,
+  onClick,
+  style = {},
+}) => {
   // 按钮Class
   const btnClass = (type?: string) => {
-    let className = `lei-button type-${type} size-${props.size}`
+    let className = `lei-button type-${type} size-${size}`;
 
-    props.plain && (className += ' plain');
-    props.disabled && (className += ' disabled');
-    props.round && (className += ' round');
-    props.link && (className += ' link');
+    plain && (className += ' plain');
+    disabled && (className += ' disabled');
+    round && (className += ' round');
+    link && (className += ' link');
 
     return className;
   };
 
   // 点击事件
-  const onClick = () => (props.disabled ? undefined : props.onClick)
+  const handleClick = () => (disabled ? undefined : onClick);
 
   return (
-    <div className={btnClass(props.type)} onClick={onClick()}>
-      {
-        props.loading ?
-          <div className="flex_center">
-            <div className="button-loading"></div>
-            <div>{props["loading-text"]}</div>
-          </div> :
-          <div className="flex_center">
-            {props.icon && <Icon name={props.icon} size={16} style={{ marginRight: '5px' }} />}
-            <div>{props.children}</div>
-          </div>
-      }
+    <div className={btnClass(type)} onClick={handleClick()} style={style}>
+      {loading ? (
+        <div className="flex_center">
+          <div className="button-loading"></div>
+          <div>{loadingText}</div>
+        </div>
+      ) : (
+        <div className="flex_center">
+          {icon && (
+            <Icon
+              name={icon}
+              size={16}
+              style={{ marginRight: children ? '5px' : '0' }}
+            />
+          )}
+          {children && <div>{children}</div>}
+        </div>
+      )}
     </div>
   );
 };
-
-Button.defaultProps = {
-  type: 'default',
-  size: 'middle',
-  children: '按钮',
-  "loading-text": '加载中...'
-}
 
 export default Button;

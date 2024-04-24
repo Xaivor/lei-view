@@ -1,32 +1,50 @@
 import React, { type FC } from 'react';
 
 interface Props {
+  /**
+   * @description 图标名称
+   * @default "bell"
+   */
   name: string;
+  /**
+   * @description 图标大小
+   * @default "32"
+   */
   size?: number;
+  /**
+   * @description 图标颜色
+   * @default "--"
+   */
   color?: string;
+  /**
+   * @description 图标内嵌样式
+   * @default "--"
+   */
   style?: React.CSSProperties;
+  onClick?: () => void;
 }
 
-const Icon: FC<Props> = (props) => {
-  const getClassName = () => `iconfont-lei icon-${props.name}`
+const Icon: FC<Props> = ({
+  name = 'bell',
+  size = 32,
+  color,
+  style,
+  onClick,
+}) => {
+  const getClassName = () => `iconfont-lei icon-${name}`;
   const getStyle = () => {
-    const style = {
-      fontSize: props.size + 'px',
-      ...props.style
-    }
+    const thisStyle = {
+      fontSize: size + 'px',
+      ...style,
+    };
 
-    props.color && (style.color = props.color)
-    return style
-  }
+    color && (thisStyle.color = color);
+    return thisStyle;
+  };
 
   return (
-    <i className={getClassName()} style={getStyle()}></i>
+    <i className={getClassName()} style={getStyle()} onClick={onClick}></i>
   );
-}
-
-Icon.defaultProps = {
-  name: 'default',
-  size: 32
 };
 
 export default Icon;
