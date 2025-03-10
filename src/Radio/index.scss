@@ -1,0 +1,115 @@
+// 基础样式
+.radio-group {
+  display: inline-flex;
+  gap: 8px;
+
+  // 默认形态
+  .radio-default {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+    margin-right: 10px;
+    transition: all 0.3s;
+
+    &:hover {
+      color: #1890ff;
+      border-color: #1890ff;
+
+      .radio-dot {
+        border: 3px solid #1890ff !important;
+      }
+    }
+
+    &.active {
+      color: #1890ff;
+
+      .radio-dot {
+        border: 1px solid #1890ff !important;
+
+        &::after {
+          width: 8px;
+          height: 8px;
+          background: #1890ff;
+          transform: scale(1);
+        }
+      }
+    }
+
+    &.disabled {
+      color: rgba(0, 0, 0, 0.25);
+      .radio-dot {
+        background-color: #f5f5f5;
+        border: 1px solid #d9d9d9 !important;
+
+        &::after {
+          background-color: rgba(0, 0, 0, 0.25);
+        }
+      }
+    }
+
+    .radio-dot {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 16px;
+      height: 16px;
+      border: 1px solid #d9d9d9;
+      border-radius: 50%;
+      margin-right: 8px;
+      position: relative;
+      transition: all 0.3s;
+      box-sizing: border-box;
+
+      &::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+        background: transparent;
+        border-radius: 50%;
+        transform: scale(0);
+        transition: all 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
+      }
+    }
+  }
+
+  // 按钮形态
+  .radio-button {
+    position: relative;
+    display: inline-block;
+    padding: 6px 16px;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    background: #fff;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &.active {
+      color: #fff;
+      background: #1890ff;
+      border-color: #1890ff;
+      z-index: 1;
+    }
+
+    &.disabled {
+      color: rgba(0, 0, 0, 0.25);
+      background-color: #f5f5f5;
+      border-color: #d9d9d9;
+    }
+  }
+}
+
+// 按钮形态样式
+.radio-button {
+  position: relative;
+  padding: 6px 12px;
+  border: 1px solid #d9d9d9;
+  transition: all 0.3s;
+
+  &.active {
+    border-color: #1890ff;
+    color: #1890ff;
+  }
+}
